@@ -1,0 +1,3 @@
+ALTER TABLE users
+    ADD COLUMN name   VARCHAR(100) NOT NULL AFTER username,
+    ADD COLUMN status VARCHAR(20)  NOT NULL DEFAULT 'ACTIVE' AFTER password_hash;
