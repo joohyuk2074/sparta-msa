@@ -1,9 +1,9 @@
 spring:
-  flyway:
-    enabled: true # Flyway 활성화
-    # 마이그레이션 파일 위치 지정 (기본값)
-    locations: classpath:db/migration
-    baseline-on-migrate: true # 기존에 테이블이 있는 DB에 Flyway를 처음 적용할 때 사용
+#  flyway:
+#    enabled: true # Flyway 활성화
+#    # 마이그레이션 파일 위치 지정 (기본값)
+#    locations: classpath:db/migration
+#    baseline-on-migrate: true # 기존에 테이블이 있는 DB에 Flyway를 처음 적용할 때 사용
 
   # 데이터베이스 연결 설정
   datasource:
@@ -18,8 +18,9 @@ spring:
       # ddl-auto: 애플리케이션 실행 시 스키마(테이블) 처리 전략
       # none: 아무 작업도 하지 않음 (운영 환경 추천)
       # create: 기존 테이블 삭제 후 다시 생성
-      # update: 변경된 부분만 반영
-      ddl-auto: validate
+      # update: 변경된 부분만 반영 (개발 환경에서 사용, 엔티티 기반으로 테이블 자동 생성/수정)
+      # validate: 엔티티와 테이블 일치 여부만 검증 (불일치 시 에러)
+      ddl-auto: update
     properties:
       hibernate:
         # MySQL 8 버전에 맞는 Dialect(방언) 설정
